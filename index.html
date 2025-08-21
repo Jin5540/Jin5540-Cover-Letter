@@ -1,196 +1,95 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>이예진 – 자기소개서</title>
-  <meta name="theme-color" content="#3a7bd5" />
+  <title>자기소개서 | 이예진</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Noto+Sans+KR:wght@400;600;800&display=swap" rel="stylesheet">
+
   <style>
-    @font-face {
-      font-family: 'Pretendard';
-      font-style: normal;
-      font-weight: 400;
-      src: local('Pretendard'), url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/woff2/Pretendard-Regular.woff2') format('woff2');
+    :root{
+      --bg:#ffffff;
+      --text:#111827;
+      --muted:#6b7280;
+      --line:#e5e7eb;
+      --pill:#111827;
+      --pill-text:#fff;
     }
-
-    body {
-      font-family: 'Pretendard', sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #f8f9fb;
-      color: #111;
-      font-size: 16px;
-      font-weight: 400;
-      line-height: 1.6;
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:"Inter","Noto Sans KR",system-ui;
+      color:var(--text); background:var(--bg); line-height:1.65; font-size:16px;
     }
+    .container{max-width:980px; margin:0 auto; padding:32px 20px 64px}
 
-    .highlight {
-      background: linear-gradient(transparent 60%, #ffe066 60%);
-      display: inline;
+    h1,h2,h3,h4{margin:0}
+    .highlight{font-weight:800}
+    .period-mark::after{content:"."; font-weight:900; color:var(--text)}
+
+    header{display:flex; justify-content:space-between; gap:24px; margin-bottom:36px}
+    .title h1{font-size:40px; margin-bottom:6px}
+    .title .subtitle{font-size:18px; color:var(--muted)}
+    .contact{display:flex; flex-direction:column; align-items:flex-end; gap:10px}
+    .icons{display:flex; gap:14px}
+    .icon{width:42px; height:42px; border:2px solid var(--text); border-radius:9999px; display:grid; place-items:center; transition:.2s}
+    .icon:hover{transform:translateY(-2px); background:#f7f7f7}
+    .contact a{color:var(--text); text-decoration:none}
+    .divider{border:none; border-top:1px solid var(--line); margin:24px 0 36px}
+
+    .about h2{font-size:26px; margin-bottom:14px}
+    .about-grid{display:grid; grid-template-columns:200px 1fr; gap:24px}
+    .avatar{width:180px; height:180px; border-radius:9999px; overflow:hidden; border:1px solid var(--line); background:#f3f4f6}
+    .avatar img{width:100%; height:100%; object-fit:cover}
+    .about p{margin:10px 0}
+    .pill{display:inline-block; padding:2px 8px; border-radius:6px; background:var(--pill); color:var(--pill-text); font-weight:600}
+
+    section{margin-bottom:48px}
+    .row{display:grid; grid-template-columns:220px 1fr; gap:24px; margin-top:18px}
+    .row-left h3{font-size:18px; font-weight:700}
+    .row-right h4{font-size:18px; font-weight:700; margin-bottom:8px}
+    .row-right p{margin:8px 0}
+
+    footer{margin-top:48px; color:var(--muted); font-size:14px; text-align:center}
+    @media(max-width:780px){
+      header{flex-direction:column; align-items:flex-start}
+      .contact{align-items:flex-start}
+      .about-grid,.row{grid-template-columns:1fr}
     }
-
-    .container {
-      max-width: 768px;
-      padding: 3rem 1.5rem;
-      margin: auto;
-    }
-
-    h1 {
-      font-size: 4.7rem;
-      font-weight: 600;
-      line-height: 1.4;
-      margin-bottom: 1.5rem;
-      word-break: keep-all;
-      letter-spacing: -0.02em;
-    }
-
-    .big-paragraph {
-      font-size: 1.1rem;
-      margin-top: 1rem;
-      margin-bottom: 2rem;
-    }
-
-    h2 {
-      margin-top: 4rem;
-      font-size: 2.2rem;
-      font-weight: 800;
-      margin-bottom: 0;
-    }
-
-    h3 {
-      margin-top: 2rem;
-      font-size: 1.25rem;
-      font-weight: 600;
-    }
-
-    h4 {
-      margin-top: 1.7rem;
-      font-weight: 600;
-      font-size: 1.5rem;
-    }
-
-    .period-mark::after {
-      content: ".";
-      color: #3a7bd5;
-      font-weight: bold;
-    }
-
-    .row {
-      display: flex;
-      flex-wrap: wrap;
-    }
-
-    .row-left {
-      width: 30%;
-      padding-right: 1rem;
-      box-sizing: border-box;
-    }
-
-    .row-right {
-      width: 70%;
-      box-sizing: border-box;
-    }
-
-    p {
-      margin-top: 0.7rem;
-    }
-
-    @media (max-width: 768px) {
-      .row-left, .row-right {
-        width: 100%;
-      }
-    }
-
-    /* 토글 버튼 */
-    .lang-toggle {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      background: #f8f9fb;
-      padding: 1rem;
-      display: flex;
-      justify-content: flex-end;
-      align-items: center;
-      gap: 1rem;
-    }
-
-    .toggle-wrapper {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      font-size: 14px;
-      font-weight: 600;
-    }
-
-    .toggle-switch {
-      position: relative;
-      width: 50px;
-      height: 26px;
-    }
-
-    .toggle-switch input {
-      display: none;
-    }
-
-    .slider {
-      position: absolute;
-      cursor: pointer;
-      background-color: #ccc;
-      border-radius: 34px;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      transition: 0.3s;
-    }
-
-    .slider::before {
-      content: "";
-      position: absolute;
-      height: 20px;
-      width: 20px;
-      left: 3px;
-      bottom: 3px;
-      background-color: white;
-      transition: 0.3s;
-      border-radius: 50%;
-    }
-
-    .toggle-switch input:checked + .slider {
-      background-color: #3a7bd5;
-    }
-
-    .toggle-switch input:checked + .slider::before {
-      transform: translateX(24px);
-    }
-
   </style>
 </head>
 <body>
-<div class="lang-toggle">
-  <div class="toggle-wrapper">
-    <span id="lang-label">한국어</span>
-    <label class="toggle-switch">
-      <input type="checkbox" id="langToggle" onchange="toggleLanguage()">
-      <span class="slider"></span>
-    </label>
-  </div>
-</div>
+  <div class="container">
 
-<div class="container">
-  <div id="korean">
-    <section>
-      <h1>
-        <span class="highlight">반갑습니다,</span><br>
-        <span class="highlight">저는 이예진입니다</span><span class="period-mark"></span>
-      </h1>
-      <p class="big-paragraph">
-        Java와 Node.js 서버 개발, Kotlin 기반 Android 앱까지 폭넓게 경험했습니다.<br>
-        사이드 프로젝트를 통해 안정적인 시스템 구조를 직접 설계하고 운영해 왔습니다.<br>
-        쉽게 만들기보다, 오래 쓰이게 만들고 싶습니다.<br>
-        저는 고심을 멈추지 않는 개발자입니다.
-      </p>
-    </section>
+    <!-- HEADER -->
+    <header>
+      <div class="title">
+        <h1>이예진</h1>
+        <div class="subtitle">완성도를 더해가는 개발자</div>
+      </div>
+      <div class="contact">
+        <div class="icons">
+          <a class="icon" href="https://github.com/Jin5540" aria-label="GitHub">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77 5.44 5.44 0 0 0 3.5 8.5c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+          </a>
+          <a class="icon" href="https://www.linkedin.com/in/yejin-lee-0338192ba/" aria-label="LinkedIn">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+          </a>
+          <a class="icon" href="https://dev.to/sunj" aria-label="Blog">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M2 12h20"></path><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+          </a>
+        </div>
+        <div><strong>Email:</strong> <a href="mailto:c20950308@gmail.com">c20950308@gmail.com</a></div>
+      </div>
+    </header>
+
+    <hr class="divider" />
+
+    <!-- MAIN SECTIONS -->
     <section>
       <div class="row">
         <div class="row-left">
@@ -200,7 +99,7 @@
           <h4><span class="highlight">쉽게 만들기보다, 오래 쓰이게 만들고 싶다</span><span class="period-mark"></span></h4>
           <p>사기업 대상 보안 인증 시스템(PKI) 유지보수 업무를 통해 레거시 시스템의 중요성과 지속 가능한 코드의 가치를 깊이 깨달았습니다. 특히 Spring Boot로의 마이그레이션을 주도하며 유지관리성과 성능을 동시에 개선한 경험은 저에게 백엔드 엔지니어로서의 방향성을 명확히 해주었습니다.</p>
           <p>Java와 Node.js를 활용한 서버 개발부터 Kotlin 기반 Android 앱 개발까지 폭넓은 기술 경험을 쌓아왔고, 각 프로젝트에서 '안정적인 시스템 구조'를 직접 설계하고 운영하며 실무 역량을 다져왔습니다. 사이드 프로젝트들을 통해서는 기상청 API 연동, 실시간 통신, 블록체인 연동 등 다양한 기술적 도전을 경험하며 지속적으로 성장해왔습니다.</p>
-          <p>앞으로는 고심을 멈추지 않는 개발자로서 더욱 견고하고 확장 가능한 시스템을 구축하고, 팀과 함께 기술적 깊이와 비즈니스 가치를 모두 만족시키는 솔루션을 만들어가고 싶습니다.</p>
+          <p>완성도를 더해가는 개발자로서 더욱 견고하고 확장 가능한 시스템을 구축하고, 팀과 함께 기술적 깊이와 비즈니스 가치를 모두 만족시키는 솔루션을 만들어가고 싶습니다.</p>
         </div>
       </div>
 
@@ -229,89 +128,8 @@
         </div>
       </div>
     </section>
+
+    <footer>© 2025 이예진. All rights reserved.</footer>
   </div>
-
-  <div id="english" style="display: none;">
-    <section>
-      <h1>
-        <span class="highlight">Nice to meet you,</span><br>
-        <span class="highlight">I'm Yejin Lee</span><span class="period-mark"></span>
-      </h1>
-      <p class="big-paragraph">
-        I have extensive experience in Java and Node.js server development, as well as Kotlin-based Android apps.<br>
-        Through side projects, I've designed and operated stable system architectures firsthand.<br>
-        Rather than building quick solutions, I aim to create systems that last.<br>
-        I'm a developer who never stops thinking deeply.
-      </p>
-    </section>
-    <section>
-      <div class="row">
-        <div class="row-left"><h3>1. What motivated you to apply and what are your future goals?</h3></div>
-        <div class="row-right">
-          <h4><span class="highlight">I want to build things that last long rather than just build them easily</span><span class="period-mark"></span></h4>
-          <p>Through my experience maintaining a PKI (Public Key Infrastructure) system for businesses, I deeply realized the importance of legacy systems and the value of sustainable code. Leading the migration to Spring Boot and simultaneously improving maintainability and performance clarified my direction as a backend engineer.</p>
-          <p>I have built extensive technical experience from server development using Java and Node.js to Android app development based on Kotlin, and have strengthened my practical capabilities by directly designing and operating 'stable system structures' in each project. Through side projects, I have experienced various technical challenges such as weather API integration, real-time communication, and blockchain integration, continuously growing through these experiences.</p>
-          <p>In the future, as a developer who never stops contemplating, I want to build more robust and scalable systems, and work with teams to create solutions that satisfy both technical depth and business value.</p>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="row-left"><h3>2. Please tell us about your personality strengths and weaknesses<span class="period-mark"></span></h3></div>
-        <div class="row-right">
-          <h4><span class="highlight">Problem-solving tenacity and team-unifying communication skills</span><span class="period-mark"></span></h4>
-          <p>I was able to confirm this through my experience analyzing complex legacy code and improving it step by step during the Spring Boot migration process of the PKI system. Also, as shown in the Order Management System (OMS) development where I improved work efficiency by parallel API design and UI improvement, I have the habit of thinking not only about technical implementation but also from the user's perspective.</p>
-          <p>My experience running local community meetings and continuously leading communities both online and offline demonstrates my communication skills and leadership. Through communication with various participants, I was able to naturally develop the clear communication and collaboration skills needed in development teams.</p>
-          <p>On the other hand, my weakness is that I tend to prioritize speed over stability sometimes when pursuing quick results. However, to overcome this, I am actively adopting code reviews and Test-Driven Development (TDD), and practicing to balance speed and quality through phased development. Especially in the chat app I'm currently developing, I'm building the habit of improving code quality by necessarily going through refactoring stages after implementing features.</p>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="row-left"><h3>3. Please describe your experience related to the position you're applying for<span class="period-mark"></span></h3></div>
-        <div class="row-right">
-          <h4><span class="highlight">From development to operations</span><span class="period-mark"></span></h4>
-          <p>In the business security authentication system, I was responsible for system maintenance and migration using Java, Spring Boot, MySQL, Apache technology stack. I simultaneously achieved performance optimization and code quality improvement while transitioning legacy systems to modern frameworks.</p>
-          <p>In the Order Management System project, I performed full-stack development from API design to UI improvement using Flask and JavaScript, and gained deployment and operation experience in Linux environments.</p>
-          <p>I also have experience with various technology stacks. In the Laravel-based sports facility reservation system, I applied blockchain technology to real work by integrating ETH-based reward systems, and in real-time communication apps using Kotlin and Node.js, I implemented WebSocket-based real-time communication.</p>
-          <p>The project I'm currently focusing on is a chat application that connects online and offline meetings. While running local community meetings and observing communication patterns among participants, I felt the need for a platform that could naturally connect online chatting with offline meetings. In this project, planned based on actual user experience, I am simultaneously handling Kotlin-based Android development and Node.js server development. From real-time chat features to offline meeting schedule management, I am gaining user-centered development experience by directly implementing features that community members truly need.</p>
-          <p>Through these various experiences, I have grown as a backend engineer who considers not just simple feature implementation but system architecture design, performance optimization, and stable operation. Especially as my local community management experience led to the chat application I'm currently developing, I am naturally experiencing the entire process of identifying actual user needs and solving them technically. Through this, I am growing as a developer who creates value that users truly need, rather than simply implementing technology.</p>
-          <p>More detailed information about my development philosophy and experience can be found in my portfolio.</p>
-        </div>
-      </div>
-    </section>
-  </div>
-
-  <section>
-    <h2>Contact<span class="period-mark"></span></h2>
-    <ul>
-      <li><a href="https://github.com/Jin5540" target="_blank">GitHub</a></li>
-      <li><a href="https://dev.to/yesjin" target="_blank">Blog</a></li>
-    </ul>
-  </section>
-</div>
-
-<script>
-  function toggleLanguage() {
-    const korean = document.getElementById('korean');
-    const english = document.getElementById('english');
-    const label = document.getElementById('lang-label');
-    const isChecked = document.getElementById('langToggle').checked;
-
-    if (isChecked) {
-      korean.style.display = 'none';
-      english.style.display = 'block';
-      label.textContent = 'English';
-    } else {
-      korean.style.display = 'block';
-      english.style.display = 'none';
-      label.textContent = '한국어';
-    }
-  }
-
-  // 초기 언어 설정
-  window.addEventListener('DOMContentLoaded', () => {
-    toggleLanguage();
-  });
-</script>
-
 </body>
 </html>
